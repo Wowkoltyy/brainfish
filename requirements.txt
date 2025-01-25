@@ -1,0 +1,4 @@
+fastapi[standart]
+uvicorn
+aiofiles  # Required for StaticFiles
+# ... other dependencies
