@@ -1,0 +1,33 @@
+{
+  "name": "phish-scan",
+  "version": "0.0.1",
+  "description": "Anti phishing extension",
+  "main": "index.js",
+  "scripts": {
+    "build": "rspack build",
+    "dev": "rspack serve",
+    "watch": "rspack watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rspack/cli": "^1.1.5",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "daisyui": "^4.12.20",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.16",
+    "vue-loader": "^17.4.2"
+  },
+  "devDependencies": {
+    "@rspack/core": "^1.1.5",
+    "@sveltejs/vite-plugin-svelte": "^5.0.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "svelte": "^5.9.1",
+    "svelte-loader": "^3.2.4",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
