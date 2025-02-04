@@ -6,7 +6,7 @@
 /node_modules
 
 # Python virtual environment
-/venv
+/backend/fishenv
 /__pycache__
 *.pyc
 *.pyo

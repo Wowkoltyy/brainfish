@@ -27,8 +27,7 @@ class RedisManager:
     def get_blocked_assets(self) -> dict:
         """Get the blocked-assets.json content."""
         json_str = self.redis_client.get('blocked_assets_json')
-        if json_str:
-            return json.loads(json_str)
+        if json_str: return json.loads(json_str)
         return {}
 
     def update_blocked_assets(self, blocked_assets: dict) -> bool:

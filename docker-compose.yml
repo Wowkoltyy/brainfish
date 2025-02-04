@@ -1,0 +1,20 @@
+  version: '3.8'
+  services:
+    server:
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      ports:
+        - "3000:3000"
+        - "8080:8080"
+      volumes:
+        - ./package.json:/app/package.json
+        - ./rspack.config.js:/app/rspack.config.js
+        - ./postcss.config.js:/app/postcss.config.js
+        - ./tailwind.config.js:/app/tailwind.config.js
+        - ./manifest.json:/app/manifest.json
+        - ./popup.html:/app/popup.html
+        - node_modules:/app/node_modules
+
+  volumes:
+    node_modules:
