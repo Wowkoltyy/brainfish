@@ -1,9 +1,8 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse
+import uvicorn
 import os
-print(os.system("pwd"))
-print(os.system("ls"))
 
 from database import RedisManager
 
@@ -92,6 +91,5 @@ async def allow(data: dict):
 
 # Запуск приложения
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
 
