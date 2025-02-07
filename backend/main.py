@@ -28,6 +28,7 @@ async def read_root():
     # Возвращаем HTML-файл (например, popup.html)
     with open(os.path.join("./dist/popup.html")) as f:
         return HTMLResponse(content=f.read())
+    
 
 
 
@@ -44,7 +45,7 @@ async def get_current_revision():
     return JSONResponse(content={"current_revision": current_revision})
 
 @risks.get("/whitelisted-domain.json")
-async def get_blocked_domain():
+async def get_whitelisted_domain():
     # Возвращаем JSON-объект с разрешёнными доменами
     whitelisted_domains = db.get_whitelisted_domains()
     return JSONResponse(content={"whitelisted_domains": whitelisted_domains})
@@ -67,6 +68,27 @@ api = APIRouter(prefix="/api")
 @api.post("/report", status_code=204)
 async def report_risk(report: dict):
     reports.add_to_set(JSONResponse(dict))
+
+@api.post("/allow", status_code=204)
+async def allow(data: dict):
+    if data['url'] in db.get_whitelisted_domains(): return
+    if data['url'] in db.get_blocked_domains(): return JSONResponse(content = {"message": "Domain is blocked"})
+
+    blocked_asstes = await get_blocked_assets()
+    if blocked_asstes in data["hash"]: return JSONResponse(content = {"message": "Domain contains blocked asset"})
+
+    fishing_signs = await get_fishing_signs()
+
+    for fishing_sign in fishing_signs:
+        for script in data['contents']:
+            if fishing_sign in data['contents'][script]:
+                return JSONResponse(content = {"message": "Domain contains fishing sign"})
+            
+    return
+        
+    
+
+
 
 # Запуск приложения
 if __name__ == "__main__":

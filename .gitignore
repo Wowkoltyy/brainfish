@@ -73,3 +73,6 @@ package-lock.json
 *.bak
 *.cache
 *.sqlite
+
+
+some.txt
