@@ -40,4 +40,8 @@ BrainFish - это инновационное расширение для бра
 ![alt text](/extra/diagram1.png)
 
 
+## Видеоролик с демонстрацией работы плагина
+
+https://www.dropbox.com/scl/fi/8vvfiabz1ptrgatewar6r/brainfish.mov?rlkey=0l8npgwf2xcn7oxg2kc7car6z&e=4&st=1mao81qq&dl=0
+
 
